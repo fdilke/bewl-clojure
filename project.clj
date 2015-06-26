@@ -4,11 +4,12 @@
   :main bewl.perf-tests
   :license {
      :name "Eclipse Public License"
-     :url "http://www.eclipse.org/legal/epl-v10.html" }
+     :url "http://www.eclipse.org/legal/epl-v10.html"
+  }
   :dependencies [
-     [org.clojure/clojure "1.5.0"]
-     [org.clojure/clojure-contrib "1.2.0"]
-     [swank-clojure "1.4.2"]
+    [org.clojure/clojure "1.6.0"]
+    [org.clojure/math.combinatorics "0.1.1"]
+    [swank-clojure "1.4.2"]
   ]
   :jvm-opts ["-Xmx1g" "-server"]
   :repl-init bewl.bewl

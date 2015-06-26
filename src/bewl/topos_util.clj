@@ -1,7 +1,6 @@
 (ns bewl.topos-util
   (:use swank.util 
-        [clojure.contrib.fcase :only [case] :rename {case x-case}]
-        [bewl util object-wrap]
+    [bewl util object-wrap]
   )
 )
 
@@ -37,12 +36,12 @@
      sources       (map #(% :src) arrows)
      common-source (find-first #(not= the-1 %) sources)
   ] (if common-source (let [common-to-1 (to-1 common-source)
-        ] (doall (for [arrow arrows] 
-                 (x-case (arrow :src)
+        ] (doall (for [arrow arrows]
+                 (condp = (arrow :src)
                        common-source   arrow
                        the-1          (arrow common-to-1)
-                       (throw (IllegalArgumentException. 
-                           (str "multiple non-global elements with different sources: " 
+                       (throw (IllegalArgumentException.
+                           (str "multiple non-global elements with different sources: "
                                 (arrow :src) " not " common-source "::>" (= (arrow :src) common-source))))
                        )
            )))

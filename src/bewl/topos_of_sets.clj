@@ -1,5 +1,5 @@
 (ns bewl.topos-of-sets
-  (:use clojure.contrib.combinatorics
+  (:use clojure.math.combinatorics
         clojure.set  
         [bewl util enhance topos-util object-wrap]
 ))
